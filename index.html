@@ -16,19 +16,14 @@
             --gold: #D4AF37;
             --gold-bright: #F4D06F;
             --gold-dim: #8a701e;
-            --cream: #FFFFFF;
+            --cream: #FFFFFF; /* Pure white for max contrast */
             --bg-dark: #121212;
-        }
-
-        * {
-            box-sizing: border-box; /* Critical fix for alignment */
         }
 
         body {
             margin: 0;
-            padding: 20px 0 120px 0; /* Extra padding at bottom for button */
-            /* Updated to Metallic Gradient */
-            background: radial-gradient(circle at center, #5a5a5a 0%, #1a1a1a 100%);
+            padding: 20px 0 100px 0;
+            background-color: var(--bg-dark);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -43,14 +38,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            padding: 0 10px;
+            box-sizing: border-box;
             flex-grow: 1;
+            justify-content: center;
         }
 
-        /* THE CARD */
+        /* THE CARD - Mobile First Design */
         #card-area {
+            /* Width is dynamic based on screen size */
             width: 90vw; 
             max-width: 400px; 
+            /* Height maintains the 9:16 ratio for wallpapers */
             aspect-ratio: 9/16; 
             background-color: var(--forest-green);
             position: relative;
@@ -58,10 +57,9 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            /* Updated Padding: Reduced from 8% to 20px fixed to prevent squashing on desktop */
-            padding: 20px; 
+            padding: 6% 8%; /* Percentage padding scales with card */
+            box-sizing: border-box;
             background: radial-gradient(circle at 50% 30%, var(--forest-light), var(--forest-green) 90%);
-            margin: 0 auto; /* Centers the card in the container */
         }
 
         /* BORDERS */
@@ -75,7 +73,7 @@
             position: absolute;
             top: 3.5%; left: 3.5%; right: 3.5%; bottom: 3.5%;
             border: 1px solid var(--gold);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); /* Golden Glow */
             pointer-events: none;
         }
 
@@ -84,7 +82,6 @@
             text-align: center;
             margin-top: 5%;
             z-index: 2;
-            width: 100%;
         }
 
         .brand {
@@ -111,10 +108,10 @@
         }
         
         .divider {
-            width: 40px;
+            width: 15%;
             height: 2px;
             background: var(--gold);
-            margin: 15px auto; /* Centers the divider */
+            margin: 15px auto;
             border-radius: 2px;
             box-shadow: 0 0 8px var(--gold);
         }
@@ -125,16 +122,12 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 20px; /* Reduced gap slightly for tighter fit */
+            gap: 5%;
             z-index: 2;
-            width: 100%;
         }
 
         .input-group {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Centers the label and textarea */
+            text-align: center;
         }
 
         .label {
@@ -144,32 +137,31 @@
             text-transform: uppercase;
             letter-spacing: 0.2em;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             font-weight: 600;
-            text-align: center;
         }
 
         textarea {
-            width: 100%; /* Takes full width of parent */
-            max-width: 100%;
-            background: rgba(0, 0, 0, 0.2);
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2); /* Darker background for contrast */
             border: none;
             border-bottom: 1px solid rgba(212, 175, 55, 0.5);
             color: var(--cream);
             font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
+            font-size: 1.1rem; /* Larger text */
             line-height: 1.3;
-            text-align: center; /* Centers the text inside */
+            text-align: center;
             resize: none;
             outline: none;
-            padding: 8px 0;
+            padding: 10px 5px;
             border-radius: 4px;
-            margin: 0 auto; /* Centers the box */
+            transition: all 0.3s;
         }
 
         textarea:focus {
             background: rgba(255, 255, 255, 0.1);
             border-bottom: 1px solid var(--gold-bright);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         textarea::placeholder {
@@ -186,14 +178,12 @@
             align-items: center;
             margin-bottom: 5%;
             z-index: 2;
-            width: 100%;
-            gap: 15px;
+            gap: 10px;
         }
 
         .signature-line {
-            width: 80%;
+            width: 70%;
             text-align: center;
-            margin: 0 auto;
         }
 
         .signature-input {
@@ -216,6 +206,7 @@
             font-size: 0.7rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
+            margin-top: 10px;
         }
 
         /* FIXED CONTROLS */
@@ -226,11 +217,10 @@
             width: 100%;
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
-            padding: 20px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centers the button horizontally */
-            justify-content: center;
+            align-items: center;
             box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
             z-index: 100;
         }
@@ -245,9 +235,8 @@
             letter-spacing: 1px;
             font-size: 14px;
             border-radius: 8px;
-            width: 90%; /* Standard width on mobile */
+            width: 90%;
             max-width: 400px;
-            margin: 0 auto; /* Centers the button */
             background: linear-gradient(135deg, var(--gold), var(--gold-dim));
             color: var(--forest-green);
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
@@ -262,10 +251,9 @@
             text-align: center;
             margin-top: 10px;
             color: #888;
-            width: 100%;
         }
 
-        /* PREVIEW MODAL */
+        /* IMAGE PREVIEW MODAL */
         #preview-modal {
             display: none;
             position: fixed;
@@ -280,31 +268,29 @@
 
         #preview-modal img {
             max-width: 90%;
-            max-height: 75vh;
+            max-height: 80%;
             border: 2px solid var(--gold);
             box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
             border-radius: 8px;
-            margin-bottom: 20px;
         }
 
         .modal-text {
             color: var(--gold);
             font-family: 'Montserrat', sans-serif;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: center;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.9rem;
         }
 
         .close-btn {
+            margin-top: 20px;
             background: transparent;
             border: 1px solid white;
             color: white;
             width: auto;
-            padding: 10px 40px;
-            margin-top: 0;
+            padding: 10px 30px;
         }
 
     </style>
@@ -347,12 +333,15 @@
                 <div class="year-stamp">Est. 2026</div>
             </div>
         </div>
+        
+        <!-- Spacer for fixed footer -->
+        <div style="height: 100px;"></div>
     </div>
 
     <!-- CONTROLS -->
     <div class="controls">
         <button class="btn-download" onclick="generateImage()">Save as Wallpaper</button>
-        <div class="instruction-text">Note: Wallpapers save as images.</div>
+        <div class="instruction-text">Note: Wallpapers must be saved as images.</div>
     </div>
 
     <!-- PREVIEW MODAL -->
@@ -380,9 +369,7 @@
                 scale: 3, 
                 useCORS: true,
                 backgroundColor: null,
-                logging: false,
-                windowWidth: cardElement.scrollWidth, /* Ensures proper capture width */
-                windowHeight: cardElement.scrollHeight
+                logging: false
             };
 
             setTimeout(() => {
