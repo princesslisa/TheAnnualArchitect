@@ -58,7 +58,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 8%; /* Balanced padding */
+            /* Updated Padding: Reduced from 8% to 20px fixed to prevent squashing on desktop */
+            padding: 20px; 
             background: radial-gradient(circle at 50% 30%, var(--forest-light), var(--forest-green) 90%);
             margin: 0 auto; /* Centers the card in the container */
         }
@@ -124,7 +125,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 25px; /* Space between inputs */
+            gap: 20px; /* Reduced gap slightly for tighter fit */
             z-index: 2;
             width: 100%;
         }
